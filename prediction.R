@@ -96,6 +96,9 @@ accuracy
 out_of_sample_error <-  1 - as.numeric(confusionMatrix(validationData$classe, predictRandomForest)$overall[1])
 out_of_sample_error
 
+result <- predict(modelRandomForest, testDataCleaned[, -ncol(testDataCleaned)])
+result
+
 # Decision tree visualization
 treeModel <- rpart(classe ~ ., data=trainingData, method="class")
 prp(treeModel)
